@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ItemRelated
 {
     //Move all logic related to picking up items here
-    //You should be able to have equipment without inventory
+    //You should be able to have equipment without inventory and vice verca
     public class Equipment : MonoBehaviour
     {
         //[SerializeField] private EquipmentHolder _shieldHolder;

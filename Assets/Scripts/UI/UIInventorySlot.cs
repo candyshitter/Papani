@@ -34,7 +34,6 @@ public class UIInventorySlot :
         Item = item;
         _image.sprite = Item != null ? item.Icon : null;
         _image.enabled = item != null;
-        
     }
     
 
@@ -90,6 +89,3 @@ public class UIInventorySlot :
 
     private void HandleItemChanged() => SetItem(_inventorySlot.Item);
 }
-
-//if item is put in the slot 0, 1, 2, 3 or 4, also equip the item 
-//if item is removed from slot 0, 1, 2, 3, or 4, deeqip item

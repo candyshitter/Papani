@@ -1,29 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using ItemRelated;
 using UnityEngine;
 
+//Todo : make this a monobehaviour
 public class PickUper
 {
-    public event Action<bool> ItemWithinReach;
-    public Item Item;
-    
-    //When close to object, show menu
-    //When not close, not show
-    //When having picked up item, do not show
-    //When having picked up item, but another item is
-    //    still in range, continue showing
+    public event Action<Item> ItemWithinReach;
 
-    public void OnTriggerStay(Collider other)
-    {   
-        if(Item == null)
-            Item = other.GetComponent<Item>();
-        if (Item == null || Item.WasPickedUp) return;
-        ItemWithinReach?.Invoke(true);
+    private readonly List<Item> _items = new List<Item>();
+    private Item Item => _items[0];
+
+    public void Update(Inventory inventory)
+    {
+        if (Item != null && PlayerInput.Instance.PickupButton)
+            inventory.Pickup(Item);
     }
 
-    public void DeselectItem()
+    public void OnTriggerEnter(Collider other)
     {
-        Item = null;
-        ItemWithinReach?.Invoke(false);
+        var item = other.GetComponent<Item>();
+        if (item == null)
+            return;
+        _items.Add(item);
+        ItemWithinReach?.Invoke(item);
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        var item = other.GetComponent<Item>();
+        if (item == null) return;
+        _items.Remove(item);
+        ItemWithinReach?.Invoke(null);
     }
 }

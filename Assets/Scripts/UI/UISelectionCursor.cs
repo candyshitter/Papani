@@ -8,7 +8,6 @@ public class UISelectionCursor : MonoBehaviour
     public bool IconVisible => _image != null && _image.sprite != null && _image.enabled;
     public Sprite Icon => _image.sprite;
     
-    public Texture2D ImageCursor => _image.sprite.texture;
 
     private void Awake()
     {
@@ -23,7 +22,6 @@ public class UISelectionCursor : MonoBehaviour
     {
         _image.sprite = _inventoryPanel.Selected != null ? _inventoryPanel.Selected.Icon : null;
         _image.enabled = _image.sprite != null;
-        //Cursor.SetCursor(ImageCursor, Vector2.zero, CursorMode.Auto);
     }
 
     private void Update()

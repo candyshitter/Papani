@@ -8,7 +8,6 @@ namespace ItemRelated
     public class Inventory : MonoBehaviour
     {
         private const int DEFAULT_INVENTORY_SIZE = 25;
-    
         public event Action<Item> ItemPickedUp;
         public event Action<Item> ItemUnequipped;
         public event Action<Item> ItemEquipped;
@@ -106,7 +105,7 @@ namespace ItemRelated
             _itemsPickedUp.ContainsKey(item.ItemObject)
             && _itemsPickedUp[item.ItemObject];
 
-        public InventorySlot FindFirstAvailableSlot(SlotType itemSlotType) => 
+        private InventorySlot FindFirstAvailableSlot(SlotType itemSlotType) => 
             Slots[itemSlotType].FirstOrDefault(s => s.IsEmpty);
 
         private void AddProperInventorySlotAmount()

@@ -1,4 +1,5 @@
-﻿using ItemRelated;
+﻿using System;
+using ItemRelated;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -25,15 +26,13 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (Pause.Active) return;
-        if(PickUper.Item != null && PlayerInput.Instance.PickupButton)
-        {
-            _inventory.Pickup(PickUper.Item);
-            PickUper.DeselectItem();
-        }
+        PickUper.Update(_inventory);
         _mover.Tick();
     }
 
-    private void OnTriggerExit(Collider other) => PickUper.DeselectItem();
+    private void OnTriggerEnter(Collider other) { PickUper.OnTriggerEnter(other); }
 
-    private void OnTriggerStay(Collider other) => PickUper.OnTriggerStay(other);
+    private void OnTriggerExit(Collider other) => PickUper.OnTriggerExit(other);
+
+    //private void OnTriggerStay(Collider other) => PickUper.OnTriggerStay(other);
 }

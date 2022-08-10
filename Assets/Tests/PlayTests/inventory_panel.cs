@@ -39,9 +39,7 @@ namespace PlayTests
 
             inventoryPanel.BindToInventory(inventory);
             foreach (var slot in inventoryPanel.AllUIInventorySlots)
-            {
                 Assert.IsTrue(slot.IsEmpty);
-            }
         }
 
         [UnityTest]

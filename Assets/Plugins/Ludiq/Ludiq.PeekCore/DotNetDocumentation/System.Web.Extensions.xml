@@ -2342,11 +2342,11 @@
       <param name="e">An <see cref="T:System.EventArgs" /> object that contains the event data.</param>
     </member>
     <member name="M:System.Web.UI.Timer.OnTick(System.EventArgs)">
-      <summary>Raises the <see cref="E:System.Web.UI.Timer.Tick" /> event of the <see cref="T:System.Web.UI.Timer" /> control.</summary>
+      <summary>Raises the <see cref="E:System.Web.UI.Timer.Update" /> event of the <see cref="T:System.Web.UI.Timer" /> control.</summary>
       <param name="e">An <see cref="T:System.EventArgs" /> object that contains the event data.</param>
     </member>
     <member name="M:System.Web.UI.Timer.RaisePostBackEvent(System.String)">
-      <summary>Enables a <see cref="T:System.Web.UI.Timer" /> control to raise the <see cref="E:System.Web.UI.Timer.Tick" /> event when a page is posted to the server.</summary>
+      <summary>Enables a <see cref="T:System.Web.UI.Timer" /> control to raise the <see cref="E:System.Web.UI.Timer.Update" /> event when a page is posted to the server.</summary>
       <param name="eventArgument">A string with an optional argument to be passed to the event handler.</param>
     </member>
     <member name="M:System.Web.UI.Timer.Render(System.Web.UI.HtmlTextWriter)">
@@ -2354,7 +2354,7 @@
       <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter" /> object that is used to render the <see cref="T:System.Web.UI.Timer" /> control content to the browser.</param>
     </member>
     <member name="M:System.Web.UI.Timer.System#Web#UI#IPostBackEventHandler#RaisePostBackEvent(System.String)">
-      <summary>Raises the <see cref="E:System.Web.UI.Timer.Tick" /> event when a page is posted to the server.</summary>
+      <summary>Raises the <see cref="E:System.Web.UI.Timer.Update" /> event when a page is posted to the server.</summary>
       <param name="eventArgument">A string with an optional argument to be passed to the event handler.</param>
     </member>
     <member name="M:System.Web.UI.Timer.System#Web#UI#IScriptControl#GetScriptDescriptors">
@@ -2365,7 +2365,7 @@
       <summary>Retrieves the client script for the <see cref="T:System.Web.UI.Timer" /> control.</summary>
       <returns>A <see cref="T:System.Web.UI.ScriptReference" /> object that contains client script for the <see cref="T:System.Web.UI.Timer" /> control.</returns>
     </member>
-    <member name="E:System.Web.UI.Timer.Tick">
+    <member name="E:System.Web.UI.Timer.Update">
       <summary>Occurs when the number of milliseconds specified in the <see cref="P:System.Web.UI.Timer.Interval" /> property has elapsed and the page is posted to the server.</summary>
     </member>
     <member name="P:System.Web.UI.Timer.Visible">

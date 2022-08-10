@@ -43,11 +43,6 @@ namespace PlayTests
             
         }
 
-        public static Item GetSwordItem()
-        {
-            throw new NotImplementedException();
-        }
-
         public static Item GetShieldItem()
         {
             var prefab = AssetDatabase.LoadAssetAtPath<Item>("Assets/Prefabs/Items/Test Items/Left Hand shield.prefab");

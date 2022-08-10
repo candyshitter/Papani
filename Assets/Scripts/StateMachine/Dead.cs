@@ -5,26 +5,28 @@ public class Dead : IState
 {
     private float _despawnTime;
     private readonly Entity _entity;
+    private readonly EntityStateMachine _esm;
 
-    public Dead(Entity entity)
+    public Dead(Entity entity, EntityStateMachine entityStateMachine)
     {
         _entity = entity;
+        _esm = entityStateMachine;
     }
 
-    public void Tick()
+    private void Tick()
     {
         if (Time.time>= _despawnTime)
-            GameObject.Destroy(_entity.gameObject);
+            Object.Destroy(_entity.gameObject);
     }
 
     public void OnEnter()
     {
-        //Drop loot, decay
         _despawnTime = Time.time + 5;
+        _esm.OnUpdate += Tick;
     }
 
     public void OnExit()
     {
-        
+        _esm.OnUpdate -= Tick;
     }
 }

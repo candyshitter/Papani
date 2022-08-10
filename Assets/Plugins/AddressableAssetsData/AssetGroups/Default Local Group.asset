@@ -21,6 +21,14 @@ MonoBehaviour:
     m_Address: Items/LootItemHolder.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 51989538f9e73a9448861d8e38ad83fd
+    m_Address: UI/Item Use Option Panel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2515b6090df87a044a6395dc6ad1499e, type: 2}
   m_SchemaSet:

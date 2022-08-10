@@ -41,9 +41,7 @@ public class StateMachine
         var transition = CheckForTransition();
         if (transition != null) 
             SetState(transition.To);
-        Tick();
     }
-    public void Tick() => CurrentState.Tick();
 
     private StateTransition CheckForTransition()
     {

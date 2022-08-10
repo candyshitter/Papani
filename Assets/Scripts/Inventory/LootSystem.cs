@@ -30,12 +30,12 @@ namespace ItemRelated
                 AssignItemToHolder(lootItemHolder, item, droppingTransform);
             }
             else
-                _lootSystemInstance.StartCoroutine(_lootSystemInstance.DropAsync(item, droppingTransform));
+                _lootSystemInstance.StartCoroutine(DropAsync(item, droppingTransform));
         }
 
-        private IEnumerator DropAsync(Item item, Transform droppingTransform)
+        private static IEnumerator DropAsync(Item item, Transform droppingTransform)
         {
-            var operation = _lootItemHolderPrefab.InstantiateAsync();
+            var operation = _lootSystemInstance._lootItemHolderPrefab.InstantiateAsync();
             yield return operation;
         
             var lootItemHolder = operation.Result.GetComponent<LootItemHolder>();

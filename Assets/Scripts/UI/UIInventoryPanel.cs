@@ -25,10 +25,7 @@ public class UIInventoryPanel : MonoBehaviour
     {
         var uiInventorySlots = GetComponentsInChildren<UIInventorySlot>();
         foreach (var uiSlot in uiInventorySlots)
-        {
             UISlots[uiSlot.SlotType].Add(uiSlot);
-        }
-            //.OrderBy(t => t.IsEquipmentSlot == false).ToArray();
         RegisterSlotsForClickCallbacks();
     }
 
@@ -55,7 +52,7 @@ public class UIInventoryPanel : MonoBehaviour
         OnSelectionChanged?.Invoke();
     }
 
-    private bool SlotCanHoldItem(UIInventorySlot slot, IItem selectedItem) =>
+    private static bool SlotCanHoldItem(UIInventorySlot slot, IItem selectedItem) =>
         slot.SlotType == selectedItem.SlotType;
 
     private void Swap(UIInventorySlot slot) => 
@@ -80,22 +77,13 @@ public class UIInventoryPanel : MonoBehaviour
     private void BindNewInventory(Inventory inventory)
     {
         foreach (var uiSlots in UISlots.Values)
-        {
             for (var i = 0; i < uiSlots.Count; i++)
             {
                 var uiSlot = uiSlots[i];
                 uiSlot.Bind(inventory.Slots[uiSlot.SlotType][i]);
                 uiSlot.GetComponentInChildren<TextMeshProUGUI>().text = i.ToString();
             }
-        }
-
-        // for (var i = 0; i < UISlots.Length; i++)
-        // {
-        //     var uiSlot = UISlots[i];
-        //     var inventorySlot = inventory.FindFirstAvailableSlot(uiSlot.SlotType); //returns the same slot every time
-        //     uiSlot.Bind(inventorySlot);
-        //     uiSlot.GetComponentInChildren<TextMeshProUGUI>().text = i.ToString();
-        // }
+        
     }
 
     private void ClearSlots()
